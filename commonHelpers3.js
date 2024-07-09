@@ -7,5 +7,5 @@ import{S as c}from"./assets/vendor-10cb7c31.js";(function(){const i=document.cre
           />
         </a>
           <span class="desc hide">${a}<span>
-        </li>`}function d(t){return t.map(l).join("")}function h(){const t=d(s);n.listEl.innerHTML=t}h();n.listEl.addEventListener("click",t=>{if(t.target===t.currentTarget)return;const i=new c(".gallery a",{captionsData:"alt",captionDelay:250});console.log(i),i.open()});n.btn.addEventListener("click",()=>{document.querySelectorAll(".gallery-item").forEach(t=>{t.classList.toggle("custom")})});
+        </li>`}function d(t){return t.map(l).join("")}function h(){const t=d(s);n.listEl.innerHTML=t}h();n.listEl.addEventListener("click",t=>{if(t.target===t.currentTarget)return;new c(".gallery a",{captionsData:"alt",captionDelay:250}).open()});n.btn.addEventListener("click",()=>{document.querySelectorAll(".gallery-item").forEach(t=>{t.classList.toggle("custom")})});
 //# sourceMappingURL=commonHelpers3.js.map
