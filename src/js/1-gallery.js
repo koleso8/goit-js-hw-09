@@ -1,3 +1,4 @@
+import simpleLightbox from 'simplelightbox';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -68,7 +69,6 @@ const images = [
 ];
 
 const refs = {
-  btn: document.querySelector('.btn'),
   listEl: document.querySelector('.gallery'),
 };
 
@@ -81,7 +81,6 @@ function imgTemplate({ preview, original, description }) {
             alt="${description}"
           />
         </a>
-          <span class="desc hide">${description}<span>
         </li>`;
 }
 
@@ -96,21 +95,8 @@ function renderImages() {
 renderImages();
 
 const lightbox = new SimpleLightbox('.gallery a', {
-  // _________________________________________________________________________options_for_slb__
+  // _________________________________________________options_for_slb__
   captionsData: 'alt',
   captionDelay: 250,
-  isAnimating: true,
 });
-console.log(lightbox);
-
-refs.listEl.addEventListener('click', e => {
-  if (e.target === e.currentTarget) return;
-
-  lightbox.open();
-});
-
-refs.btn.addEventListener('click', () => {
-  document.querySelectorAll('.gallery-item').forEach(element => {
-    element.classList.toggle('custom');
-  });
-});
+console.log(simpleLightbox);
