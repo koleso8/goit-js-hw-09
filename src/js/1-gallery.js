@@ -95,13 +95,17 @@ function renderImages() {
 }
 renderImages();
 
+const lightbox = new SimpleLightbox('.gallery a', {
+  // _________________________________________________________________________options_for_slb__
+  captionsData: 'alt',
+  captionDelay: 250,
+  isAnimating: true,
+});
+console.log(lightbox);
+
 refs.listEl.addEventListener('click', e => {
   if (e.target === e.currentTarget) return;
-  const lightbox = new SimpleLightbox('.gallery a', {
-    /* options */
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
+
   lightbox.open();
 });
 

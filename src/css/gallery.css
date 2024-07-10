@@ -58,6 +58,9 @@
   transition: 2000ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.caption {
-  font-size: 20px;
+body .sl-wrapper .sl-image .sl-caption {
+  font-family: 'Dancing Script', cursive;
+  font-size: 34px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
 }
