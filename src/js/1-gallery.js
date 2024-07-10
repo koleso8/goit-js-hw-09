@@ -1,4 +1,3 @@
-import simpleLightbox from 'simplelightbox';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -98,5 +97,5 @@ const lightbox = new SimpleLightbox('.gallery a', {
   // _________________________________________________options_for_slb__
   captionsData: 'alt',
   captionDelay: 250,
+  scrollZoomFactor: 0.1,
 });
-console.log(simpleLightbox);
