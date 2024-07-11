@@ -1,18 +1,16 @@
 const refs = {
   formEl: document.querySelector('.feedback-form'),
-  inputEl: document.querySelector('[name = email]'),
 };
-let formData = { email: '', message: '' };
+const LOCAL_KEY = 'feedback-form-state';
+const formData = JSON.parse(localStorage.getItem(LOCAL_KEY)) || {
+  email: '',
+  message: '',
+};
 
 refs.formEl.addEventListener('input', e => {
-  e.preventDefault();
-  if (Object.keys(formData)[0] === e.target.name) {
-    formData.email = e.target.value;
-  } else {
-    formData.message = e.target.value;
-  }
+  formData[e.target.name] = e.target.value.trim();
 
-  saveToLs('feedback-form-state', formData);
+  saveToLs(LOCAL_KEY, formData);
 
   function saveToLs(key, value) {
     const json = JSON.stringify(value);
@@ -20,7 +18,6 @@ refs.formEl.addEventListener('input', e => {
     console.log(json);
   }
 });
-const loadStorage = loadFromLs('feedback-form-state');
 
 function loadFromLs(key) {
   const json = localStorage.getItem(key);
@@ -31,6 +28,15 @@ function loadFromLs(key) {
     return json;
   }
 }
-refs.formEl.elements.email.value = loadStorage.email;
-refs.formEl.elements.message.value = loadStorage.message;
-console.log(load);
+
+function setDataToForm() {
+  const loadStorage = loadFromLs('feedback-form-state');
+  if (loadStorage === null) return;
+  const keys = Object.keys(formData);
+
+  keys.forEach(key => {
+    refs.formEl.elements[key].value = loadStorage[key];
+  });
+}
+setDataToForm();
+//refs.formEl.elements.message.value = loadStorage.message;
